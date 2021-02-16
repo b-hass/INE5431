@@ -1,0 +1,53 @@
+Integrantes:
+- Bruno Hass (17100509)
+- Artur Barichello (16200636)
+- Gustavo Vicente Barroso Moser(16204938)
+
+A) 
+
+i)
+Tamanho teorico = frequência * amostras/s * canais * duração / 8
+
+Tamanho = ((44100 * 16 * 1 * 10)/8 / 1024) = 861.32 KiB
+
+ii)
+Além do arquivo incluir metadados esta diferença de tamanho teórico e tamanho em disco se deve ao fato de que o sistema operacional só pode alocar múltiplos do tamanho do bloco para espaço logo sempre haverá um pequeno desperdício que chegará ao valor máximo de aproximadamente o tamanho do mesmo (neste caso 8192 bytes).
+
+iii)
+
+>>> 881.9917/8.192 (KB / B)
+107.66500244140626 = número de blocos necessários para armazenar
+>>> 108*8.192 = arredondando para cima o número de blocos e calculando o tamanho final (108 blocos de 8192 bytes)
+884.736 KB que é o equivalente a 864 KiB que é o tamanho reportado pelo sistema operacional.
+
+---
+
+B)
+
+i)
+Utilizando a mesma fórmula anterior:
+
+Tamanho teórico = ((8000 * 16 * 1 * 10)/8)/1024 = 156.25 KiB
+
+ii)
+Seguindo o teorema de Nyquist precisamos que a taxa de frequência seja o dobro da maior componente, ou seja, neste caso a maior componente é 8000 Hz/2 = 4000Hz
+
+iii)
+As frequências que estão acima da taxa de amostragem não estão presentes no áudio processado devido à taxa de amostragem menor logo transformam-se em períodos de silêncio através do low-pass filter do programa.
+
+---
+
+C)
+
+i)
+
+Utilizando a mesma fórmula das questões anteriores:
+Tamanho = ((8000 * 8 * 1 * 10)/8/1024) = 78.125 KiB.
+
+ii)
+
+Permanece 4000 Hz.
+
+iii)
+Houve um nível maior de ruído nos períodos de silêncio se comparado com os outros arquivos já que reduzir a quantidade de bits aumenta o ruído de quantização.
+
